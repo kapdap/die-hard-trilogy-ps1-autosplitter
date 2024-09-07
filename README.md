@@ -1,6 +1,6 @@
 # Die Hard Trilogy (PS1) Auto Splitter
 
-A simple level based [LiveSplit](https://livesplit.org/) Auto Splitter for [Die Hard Trilogy](https://en.wikipedia.org/wiki/Die_Hard_Trilogy) (PS1) running on an emulator.
+A simple level based [LiveSplit](https://livesplit.org/) Auto Splitter for the PlayStation release of [Die Hard Trilogy](https://en.wikipedia.org/wiki/Die_Hard_Trilogy) running on an emulator.
 
 ### Features
  - Auto start timer on new game
