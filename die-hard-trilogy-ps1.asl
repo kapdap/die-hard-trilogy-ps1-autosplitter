@@ -15,8 +15,8 @@ state("LiveSplit") {}
 startup
 {
     Assembly.Load(File.ReadAllBytes("Components/emu-help-v2")).CreateInstance("PS1");
-    
-    vars.Helper.Load = (Func<dynamic, bool>)(emu => 
+
+    vars.Helper.Load = (Func<dynamic, bool>)(emu =>
     {
         emu.MakeString("US", 11, 0x800094B4); // SLUS_001.19
         emu.MakeString("EU", 11, 0x8000949C); // SLES_004.45
@@ -26,7 +26,7 @@ startup
 
         // NTSC-U - Die Hard 1
         emu.Make<short>("US_DH1GameState",  0x801CB094); // 2:Menu, 3:Menu, 4:Demo, 5:Game
-        emu.Make<short>("US_DH1GameEnded",  0x800A346C); // 1:Game Over, 2:Well Done
+        emu.Make<short>("US_DH1GameEnded",  0x800A346C); // 4:Level Completion, 5:Game Completion
         emu.Make<short>("US_DH1Level",      0x800A33F4); // 23:Last Level
         emu.Make<int>  ("US_DH1LevelTime",  0x800A33DC);
 
@@ -62,7 +62,7 @@ startup
 
         // NTSC-J - Die Hard 1
         emu.Make<short>("JP_DH1GameState",  0x801CC8B8);
-        emu.Make<short>("JP_DH1GameEnded",  0x800A4BE0);
+        emu.Make<short>("JP_DH1GameEnded",  0x800A4D0C);
         emu.Make<short>("JP_DH1Level",      0x800A4CCC);
         emu.Make<int>  ("JP_DH1LevelTime",  0x800A4CC0);
 
@@ -86,8 +86,8 @@ startup
     settings.SetToolTip("dh1start", "Automatically starts the timer when a new game is selected.");
     settings.Add("dh1levels", true, "Level Splits", "dh1");
     settings.SetToolTip("dh1levels", "Splits at the start of each level.");
-    //settings.Add("dh1endgame", false, "Ending Split", "dh1");
-    //settings.SetToolTip("dh1endgame", "Splits when the screen fades to black after the final level.");
+    settings.Add("dh1endgame", false, "Ending Split", "dh1");
+    settings.SetToolTip("dh1endgame", "Splits when the screen fades to black after the final level.");
 
     settings.Add("dh2", true, "Die Hard 2");
     settings.Add("dh2start", true, "Auto Start", "dh2");
@@ -143,7 +143,7 @@ start
     {
         return vars.GameStart = settings["dh1start"] &&
                vars.Read("DH1GameState").Current == 5 &&
-               vars.Read("DH1LevelTime").Current >= 0 && 
+               vars.Read("DH1LevelTime").Current >= 0 &&
                vars.Read("DH1LevelTime").Current <= 15 &&
                vars.Read("DH1Level").Current == 0;
     }
@@ -151,7 +151,7 @@ start
     {
         if (settings["dh2start"] &&
             vars.Read("DH2GameState").Current == 3 &&
-            vars.Read("DH2LevelTime").Current >= 0 && 
+            vars.Read("DH2LevelTime").Current >= 0 &&
             vars.Read("DH2LevelTime").Current <= 15 &&
             vars.Read("DH2Level").Current == 0)
         {
@@ -207,21 +207,21 @@ split
 {
     if (current.Game == 2)
     {
-        if (settings["dh1levels"] && 
-            vars.Read("DH1Level").Current != 
+        if (settings["dh1levels"] &&
+            vars.Read("DH1Level").Current !=
             vars.Read("DH1Level").Old)
             return true;
 
-        /*if (settings["dh1endgame"] && !vars.GameEnded &&
+        if (settings["dh1endgame"] && !vars.GameEnded &&
             vars.Read("DH1GameState").Current == 5 &&
-            vars.Read("DH1GameEnded").Current == 2 &&
+            vars.Read("DH1GameEnded").Current == 5 &&
             vars.Read("DH1Level").Current == 23)
-            return vars.GameEnded = true;*/
+            return vars.GameEnded = true;
     }
     else if (current.Game == 3)
     {
-        if (settings["dh2levels"] && 
-            vars.Read("DH2Level").Current != 
+        if (settings["dh2levels"] &&
+            vars.Read("DH2Level").Current !=
             vars.Read("DH2Level").Old)
             return true;
 
@@ -232,8 +232,8 @@ split
     }
     else if (current.Game == 4)
     {
-        if (settings["dh3levels"] && 
-            vars.Read("DH3Level").Current != 
+        if (settings["dh3levels"] &&
+            vars.Read("DH3Level").Current !=
             vars.Read("DH3Level").Old)
             return true;
 

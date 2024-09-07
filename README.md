@@ -11,9 +11,6 @@ A simple level based [LiveSplit](https://livesplit.org/) Auto Splitter for the P
  - Supports all regions.
  - Works with popular emulators.
 
-### TODO
- - Die Hard 1 end game split.
-
 ## Acknowledgements
 
 * [Jujstme](https://github.com/Jujstme/) - [emu-help](https://github.com/Jujstme/emu-help)
