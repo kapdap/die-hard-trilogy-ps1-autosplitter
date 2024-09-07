@@ -2,7 +2,7 @@
 <Run version="1.7.0">
   <GameIcon />
   <GameName>Die Hard Trilogy</GameName>
-  <CategoryName>Die Harder 100% (Glitchless)</CategoryName>
+  <CategoryName>Die Hard with a Vengeance 100% (Glitchless)</CategoryName>
   <LayoutPath>
   </LayoutPath>
   <Metadata>
@@ -20,7 +20,7 @@
   <AttemptHistory />
   <Segments>
     <Segment>
-      <Name>Duels Airport</Name>
+      <Name>Harlem 1</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -29,7 +29,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>New Wing</Name>
+      <Name>Subway 1</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -38,7 +38,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Tunnel</Name>
+      <Name>Central Park 1</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -47,7 +47,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Runway</Name>
+      <Name>Subway 2</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -56,7 +56,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Plane Interior</Name>
+      <Name>Chinatown 1</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -65,7 +65,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Church</Name>
+      <Name>Subway 3</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -74,7 +74,7 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Snowmobile Chase</Name>
+      <Name>Wall Street 1</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
@@ -83,7 +83,79 @@
       <SegmentHistory />
     </Segment>
     <Segment>
-      <Name>Plane Intercept</Name>
+      <Name>Central Park 2</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Chinatown 2</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Subway 4</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Harlem 2</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Wall Street 2</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Aquaduct 1</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Quay 1</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Aquaduct 2</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>Simon Gruber</Name>
       <Icon />
       <SplitTimes>
         <SplitTime name="Personal Best" />
