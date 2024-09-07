@@ -83,27 +83,31 @@ startup
 
     settings.Add("dh1", true, "Die Hard 1");
     settings.Add("dh1start", true, "Auto Start", "dh1");
-    settings.SetToolTip("dh1start", "Automatically starts the timer when a new game has started.");
+    settings.SetToolTip("dh1start", "Automatically starts the timer when a new game has started");
     settings.Add("dh1levels", true, "Level Splits", "dh1");
-    settings.SetToolTip("dh1levels", "Splits at the start of each level.");
+    settings.SetToolTip("dh1levels", "Splits at the start of each level");
     settings.Add("dh1endgame", false, "Ending Split", "dh1");
-    settings.SetToolTip("dh1endgame", "Splits when the screen fades to black after the final level.");
+    settings.SetToolTip("dh1endgame", "Splits when the screen fades to black after the final level");
 
     settings.Add("dh2", true, "Die Hard 2");
     settings.Add("dh2start", true, "Auto Start", "dh2");
-    settings.SetToolTip("dh2start", "Automatically starts the timer when a new game has started.");
+    settings.SetToolTip("dh2start", "Automatically starts the timer when a new game has started");
     settings.Add("dh2levels", true, "Level Splits", "dh2");
-    settings.SetToolTip("dh2levels", "Splits at the start of each level.");
+    settings.SetToolTip("dh2levels", "Splits at the start of each level");
     settings.Add("dh2endgame", false, "Ending Split", "dh2");
-    settings.SetToolTip("dh2endgame", "Splits when the screen fades to black after the final level.");
+    settings.SetToolTip("dh2endgame", "Splits when the screen fades to black after the final level");
 
     settings.Add("dh3", true, "Die Hard 3");
     settings.Add("dh3start", true, "Auto Start", "dh3");
-    settings.SetToolTip("dh3start", "Automatically starts the timer when a new game has started.");
+    settings.SetToolTip("dh3start", "Automatically starts the timer when a new game has started");
     settings.Add("dh3levels", true, "Level Splits", "dh3");
-    settings.SetToolTip("dh3levels", "Splits at the start of each level.");
+    settings.SetToolTip("dh3levels", "Splits at the start of each level");
     settings.Add("dh3endgame", false, "Ending Split", "dh3");
-    settings.SetToolTip("dh3endgame", "Splits when the screen fades to black after the final level.");
+    settings.SetToolTip("dh3endgame", "Splits when the screen fades to black after the final level");
+
+    settings.Add("options", false, "Options");
+    settings.Add("IGT", false, "Enable In Game Time", "options");
+    settings.SetToolTip("IGT", "Allows In Game Time to be displayed and tracked");
 
     settings.Add("infogroup", false, "Info");
     settings.Add("infogroup1", false, "Die Hard Trilogy (PS1) Auto Splitter by Kapdap", "infogroup");
@@ -248,12 +252,13 @@ split
 
 gameTime
 {
-    return current.GameTime;
+    if (settings["IGT"])
+        return current.GameTime;
 }
 
 isLoading
 {
-    return true;
+    return settings["IGT"];
 }
 
 onReset
