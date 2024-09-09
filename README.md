@@ -20,6 +20,10 @@ Download sample splits compatible with the Auto Splitter here.
  - [Die Hard 2](https://raw.githubusercontent.com/kapdap/die-hard-trilogy-ps1-autosplitter/main/splits/die-hard-trilogy-ps1-die-hard-2.lss)
  - [Die Hard 3](https://raw.githubusercontent.com/kapdap/die-hard-trilogy-ps1-autosplitter/main/splits/die-hard-trilogy-ps1-die-hard-3.lss)
 
+### TODO
+ - Option to disable splitting on Die Hard 1 bonus stages.
+ - Option to split at level end.
+
 ## Acknowledgements
 
 * [Jujstme](https://github.com/Jujstme/) - [emu-help](https://github.com/Jujstme/emu-help)
