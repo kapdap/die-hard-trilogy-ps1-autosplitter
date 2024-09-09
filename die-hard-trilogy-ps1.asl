@@ -86,6 +86,8 @@ startup
     settings.SetToolTip("dh1start", "Automatically starts the timer when a new game has started");
     settings.Add("dh1levels", true, "Level Splits", "dh1");
     settings.SetToolTip("dh1levels", "Splits at the start of each level");
+    settings.Add("dh1bonus", false, "Bonus Splits", "dh1");
+    settings.SetToolTip("dh1bonus", "Enable spliting on bonus levels");
     settings.Add("dh1endgame", false, "Ending Split", "dh1");
     settings.SetToolTip("dh1endgame", "Splits when the screen fades to black after the final level");
 
@@ -211,15 +213,21 @@ split
 {
     if (current.Game == 2)
     {
-        if (settings["dh1levels"] &&
-            vars.Read("DH1Level").Current !=
-            vars.Read("DH1Level").Old)
+        var level = vars.Read("DH1Level");
+        
+        if (!settings["dh1bonus"] && level.Current != level.Old &&
+           (level.Current == 3  || level.Current == 8  ||
+            level.Current == 13 || level.Current == 18 || 
+            level.Current == 22))
+            return false;
+            
+        if (settings["dh1levels"] && level.Current != level.Old)
             return true;
 
         if (settings["dh1endgame"] && !vars.GameEnded &&
             vars.Read("DH1GameState").Current == 5 &&
             vars.Read("DH1GameEnded").Current == 5 &&
-            vars.Read("DH1Level").Current == 23)
+            level.Current == 23)
             return vars.GameEnded = true;
     }
     else if (current.Game == 3)
