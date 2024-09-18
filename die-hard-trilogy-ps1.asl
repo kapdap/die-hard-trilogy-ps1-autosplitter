@@ -41,7 +41,7 @@ startup
         emu.Make<short>("US_DH3Level",      0x800B64B4); // 15:Last Level
         emu.Make<int>  ("US_DH3LevelTime",  0x800B56A4);
         emu.Make<int>  ("US_DH3LevelTimeB", 0x801DA704);
-        emu.Make<int>  ("US_DH3Phone",      0x800B650C);
+        emu.Make<short>("US_DH3Phone",      0x800B650C);
 
         // PAL - Die Hard 1
         emu.Make<short>("EU_DH1GameState",  0x801CE928);
@@ -60,7 +60,7 @@ startup
         emu.Make<short>("EU_DH3Level",      0x800B86BC);
         emu.Make<int>  ("EU_DH3LevelTime",  0x800B7888);
         emu.Make<int>  ("EU_DH3LevelTimeB", 0x801DC914);
-        emu.Make<int>  ("EU_DH3Phone",      0x800B650C); // TODO
+        emu.Make<short>("EU_DH3Phone",      0x800B8714);
 
         // NTSC-J - Die Hard 1
         emu.Make<short>("JP_DH1GameState",  0x801CC8B8);
@@ -79,7 +79,7 @@ startup
         emu.Make<short>("JP_DH3Level",      0x800B90B0);
         emu.Make<int>  ("JP_DH3LevelTime",  0x800B8B90);
         emu.Make<int>  ("JP_DH3LevelTimeB", 0x801DD308);
-        emu.Make<int>  ("JP_DH3Phone",      0x800B650C); // TODO
+        emu.Make<short>("JP_DH3Phone",      0x800B9108);
 
         return true;
     });
