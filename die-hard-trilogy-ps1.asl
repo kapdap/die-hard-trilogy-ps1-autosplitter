@@ -41,6 +41,7 @@ startup
         emu.Make<short>("US_DH3Level",      0x800B64B4); // 15:Last Level
         emu.Make<int>  ("US_DH3LevelTime",  0x800B56A4);
         emu.Make<int>  ("US_DH3LevelTimeB", 0x801DA704);
+        emu.Make<int>  ("US_DH3Phone",      0x800B650C);
 
         // PAL - Die Hard 1
         emu.Make<short>("EU_DH1GameState",  0x801CE928);
@@ -59,6 +60,7 @@ startup
         emu.Make<short>("EU_DH3Level",      0x800B86BC);
         emu.Make<int>  ("EU_DH3LevelTime",  0x800B7888);
         emu.Make<int>  ("EU_DH3LevelTimeB", 0x801DC914);
+        emu.Make<int>  ("EU_DH3Phone",      0x800B650C); // TODO
 
         // NTSC-J - Die Hard 1
         emu.Make<short>("JP_DH1GameState",  0x801CC8B8);
@@ -77,6 +79,7 @@ startup
         emu.Make<short>("JP_DH3Level",      0x800B90B0);
         emu.Make<int>  ("JP_DH3LevelTime",  0x800B8B90);
         emu.Make<int>  ("JP_DH3LevelTimeB", 0x801DD308);
+        emu.Make<int>  ("JP_DH3Phone",      0x800B650C); // TODO
 
         return true;
     });
@@ -104,6 +107,8 @@ startup
     settings.SetToolTip("dh3start", "Automatically starts the timer when a new game has started");
     settings.Add("dh3levels", true, "Level Splits", "dh3");
     settings.SetToolTip("dh3levels", "Splits at the start of each level");
+    settings.Add("dh3phones", false, "Bomb Splits", "dh3");
+    settings.SetToolTip("dh3phones", "Splits after detonating each bomb");
     settings.Add("dh3endgame", false, "Ending Split", "dh3");
     settings.SetToolTip("dh3endgame", "Splits when the screen fades to black after the final level");
 
@@ -232,26 +237,33 @@ split
     }
     else if (current.Game == 3)
     {
-        if (settings["dh2levels"] &&
-            vars.Read("DH2Level").Current !=
-            vars.Read("DH2Level").Old)
+        var level = vars.Read("DH2Level");
+
+        if (settings["dh2levels"] && level.Current != level.Old)
             return true;
 
         if (settings["dh2endgame"] && !vars.GameEnded &&
             vars.Read("DH2GameState").Current == 2 &&
-            vars.Read("DH2Level").Current == 7)
+            level.Current == 7)
             return vars.GameEnded = true;
     }
     else if (current.Game == 4)
     {
-        if (settings["dh3levels"] &&
-            vars.Read("DH3Level").Current !=
-            vars.Read("DH3Level").Old)
+        var phone = vars.Read("DH3Phone");
+        var level = vars.Read("DH3Level");
+
+        if (settings["dh3phones"] &&
+            phone.Current != phone.Old &&
+            phone.Current != 0 &&
+            phone.Current != 1)
+            return true;
+
+        if (settings["dh3levels"] && level.Current != level.Old)
             return true;
 
         if (settings["dh3endgame"] && !vars.GameEnded &&
             vars.Read("DH3GameState").Current == 2 &&
-            vars.Read("DH3Level").Current == 15)
+            level.Current == 15)
             return vars.GameEnded = true;
     }
 
